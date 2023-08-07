@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<p><strong>Current user: </strong><%= current_user.email %></p>
+<%= form_with(url: destroy_user_session_path, method: :delete) do |form| %>
+  <%= form.submit "Logout" %>
+<% end %>
+
+<h1>Posts</h1>
+
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <p>
+      <%= link_to "Show this post", post %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New post", new_post_path %>
