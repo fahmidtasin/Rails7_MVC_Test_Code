@@ -1,8 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<p><strong>Current user: </strong><%= current_user.email %></p>
-<%= form_with(url: destroy_user_session_path, method: :delete) do |form| %>
-  <%= form.submit "Logout" %>
+<% if user_signed_in? %>
+    <p><strong>Current user: </strong><%= current_user.email %></p>
+    <%= form_with(url: destroy_user_session_path, method: :delete) do |form| %>
+      <%= form.submit "Logout" %>
+    <% end %>
+  <% else %>
+  <%= link_to "Login", new_user_session_path %>
 <% end %>
 
 <h1>Posts</h1>
