@@ -6,7 +6,7 @@ RSpec.describe Post, type: :model do
 
   context "Post Model Test:" do
 
-    post = FactoryBot.create(:post)
+    post = FactoryBot.build(:post)
 
     it "ensures title not be null" do
       expect(post.title).not_to be nil
